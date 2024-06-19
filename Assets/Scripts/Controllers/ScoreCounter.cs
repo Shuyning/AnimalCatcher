@@ -1,7 +1,6 @@
 ﻿using System;
-using Controllers.Interfaces;
 
-namespace Controllers
+namespace AnimalCatcher.Controllers
 {
     public class ScoreCounter : IScoreCounter
     {

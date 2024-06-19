@@ -1,4 +1,4 @@
-using Controllers.Interfaces;
+using AnimalCatcher.Controllers;
 using TMPro;
 using UnityEngine;
 using Zenject;

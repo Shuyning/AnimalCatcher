@@ -1,8 +1,7 @@
-﻿using Controllers.Spawners;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Controllers
+namespace AnimalCatcher.Controllers
 {
     public class GameStarter : MonoBehaviour
     {

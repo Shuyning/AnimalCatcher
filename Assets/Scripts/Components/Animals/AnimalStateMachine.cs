@@ -34,7 +34,8 @@ namespace AnimalCatcher.Components
         private AnimalStateType _currentAnimalStateType = AnimalStateType.Idle;
 
         public IAnimalComponentGetter AnimalComponentGetter => animalComponentStorage;
-        
+        public AnimalStateType AnimalStateType => _currentAnimalStateType;
+
         public event Action<IAnimalStateMachine> AnimalDespawned;
 
         private void Update()

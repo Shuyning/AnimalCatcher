@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Controllers.Interfaces
+namespace AnimalCatcher.Controllers
 {
     public interface IFollowCharacterSetter
     {

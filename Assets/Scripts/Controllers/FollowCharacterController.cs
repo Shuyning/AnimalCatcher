@@ -4,11 +4,10 @@ using System.Linq;
 using AnimalCatcher.Components;
 using AnimalCatcher.Components.Enums;
 using AnimalCatcher.Models;
-using Controllers.Interfaces;
 using UnityEngine;
 using Zenject;
 
-namespace Controllers
+namespace AnimalCatcher.Controllers
 {
     public class FollowCharacterController : ITickable, IDisposable, IFollowCharacterSetter, ICharacterFollowerStorage
     {

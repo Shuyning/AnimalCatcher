@@ -1,9 +1,8 @@
 ﻿using AnimalCatcher.Components;
-using Controllers.Interfaces;
 using UnityEngine;
 using Zenject;
 
-namespace Controllers.Spawners
+namespace AnimalCatcher.Controllers
 {
     public class CharacterSpawner
     {

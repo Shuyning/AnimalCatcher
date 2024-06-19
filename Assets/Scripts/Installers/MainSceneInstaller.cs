@@ -2,8 +2,6 @@ using AnimalCatcher.Components;
 using AnimalCatcher.Controllers;
 using AnimalCatcher.Models;
 using Components;
-using Controllers;
-using Controllers.Spawners;
 using UnityEngine;
 using Zenject;
 
@@ -45,6 +43,7 @@ namespace AnimalCatcher.Installers
 
         private void InstallSceneControllers()
         {
+            Container.Bind<IEndYardPositionGetter>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<ScoreCounter>().AsSingle();
             Container.BindInterfacesTo<FollowCharacterController>().AsSingle().WithArguments(followCharacterConfig);
         }

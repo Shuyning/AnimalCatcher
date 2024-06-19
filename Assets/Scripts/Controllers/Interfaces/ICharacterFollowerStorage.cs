@@ -1,6 +1,6 @@
 ﻿using AnimalCatcher.Components;
 
-namespace Controllers.Interfaces
+namespace AnimalCatcher.Controllers
 {
     public interface ICharacterFollowerStorage
     {

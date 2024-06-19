@@ -9,7 +9,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace Controllers.Spawners
+namespace AnimalCatcher.Controllers
 {
     public class AnimalSpawnController : IDisposable, IAnimalSpawner
     {
@@ -56,6 +56,7 @@ namespace Controllers.Spawners
                 _spawnAnimals.Remove(animalStateMachine);
             
             _animalPool.Despawn(animalStateMachine);
+            TrySpawnAnimal();
         }
 
         private void TrySpawnAnimal()

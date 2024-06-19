@@ -1,6 +1,6 @@
 ﻿using AnimalCatcher.Components;
 
-namespace Controllers.Spawners
+namespace AnimalCatcher.Controllers
 {
     public interface IAnimalSpawner
     {
