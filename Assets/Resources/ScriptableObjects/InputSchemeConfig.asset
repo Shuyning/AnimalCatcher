@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9be552af8f8d249a85926a82611de2, type: 3}
+  m_Name: InputSchemeConfig
+  m_EditorClassIdentifier: 
+  <SingleScreenTouch>k__BackingField: {fileID: -2143136690475155582, guid: bddafcbe4dc36684f9031b1be12d3c74, type: 3}
+  <PrimaryTouchPosition>k__BackingField: {fileID: -213135307926961926, guid: bddafcbe4dc36684f9031b1be12d3c74, type: 3}
