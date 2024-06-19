@@ -1,19 +1,20 @@
 ﻿using Controllers.Spawners;
+using UnityEngine;
 using Zenject;
 
 namespace Controllers
 {
-    public class GameStarter : IInitializable
+    public class GameStarter : MonoBehaviour
     {
-        private readonly CharacterSpawner _characterSpawner;
+        private CharacterSpawner _characterSpawner;
 
         [Inject]
-        private GameStarter(CharacterSpawner characterSpawner)
+        private void Construct(CharacterSpawner characterSpawner)
         {
             _characterSpawner = characterSpawner;
         }
-        
-        public void Initialize()
+
+        private void Start()
         {
             StartGame();
         }

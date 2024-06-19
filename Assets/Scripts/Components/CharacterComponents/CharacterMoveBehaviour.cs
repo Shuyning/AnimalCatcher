@@ -33,15 +33,15 @@ namespace AnimalCatcher.Components
 
         private void OnEnable()
         {
-            _screenInputObserver.SingleTouchInputHandled += UpdateCharacterPosition;
+            _screenInputObserver.SingleTouchInputHandled += MoveToPosition;
         }
 
         private void OnDisable()
         {
-            _screenInputObserver.SingleTouchInputHandled -= UpdateCharacterPosition;
+            _screenInputObserver.SingleTouchInputHandled -= MoveToPosition;
         }
 
-        private void UpdateCharacterPosition(Vector2 vector2)
+        private void MoveToPosition(Vector2 vector2)
         {
             _navMeshAgent.SetDestination(_cameraValueConverter.GetWorldPositionFromMouseTouch(vector2));
         }

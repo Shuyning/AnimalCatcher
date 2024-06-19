@@ -1,4 +1,5 @@
 using AnimalCatcher.Components;
+using AnimalCatcher.Controllers;
 using Components;
 using Controllers;
 using Controllers.Spawners;
@@ -22,6 +23,7 @@ namespace AnimalCatcher.Installers
         private void InstallSceneComponents()
         {
             Container.BindInterfacesTo<CameraComponent>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<GameAreaPositionController>().FromComponentInHierarchy().AsSingle();
         }
 
         private void InstallFactories()
@@ -32,7 +34,7 @@ namespace AnimalCatcher.Installers
 
         private void InstallSceneControllers()
         {
-            Container.BindInterfacesTo<GameStarter>().AsSingle();
+            
         }
     }   
 }
