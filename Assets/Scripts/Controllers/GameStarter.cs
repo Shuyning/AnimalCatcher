@@ -1,19 +1,21 @@
-﻿using Controllers.Spawners;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Controllers
+namespace AnimalCatcher.Controllers
 {
-    public class GameStarter : IInitializable
+    public class GameStarter : MonoBehaviour
     {
-        private readonly CharacterSpawner _characterSpawner;
+        private IAnimalSpawner _animalSpawner;
+        private CharacterSpawner _characterSpawner;
 
         [Inject]
-        private GameStarter(CharacterSpawner characterSpawner)
+        private void Construct(CharacterSpawner characterSpawner, IAnimalSpawner animalSpawner)
         {
             _characterSpawner = characterSpawner;
+            _animalSpawner = animalSpawner;
         }
-        
-        public void Initialize()
+
+        private void Start()
         {
             StartGame();
         }
@@ -21,6 +23,7 @@ namespace Controllers
         private void StartGame()
         {
             _characterSpawner.CharacterSpawn();
+            _animalSpawner.StartSpawn();
         }
     }
 }
