@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5895773665247460373}
   - component: {fileID: 6782674590513300741}
   - component: {fileID: 4928492742563239748}
+  - component: {fileID: 496302587507543958}
   - component: {fileID: 2837191052121093881}
   - component: {fileID: 8427884733517737746}
   - component: {fileID: 7518656095577456182}
@@ -146,6 +147,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 25
   m_ObstacleAvoidanceType: 4
+--- !u!114 &496302587507543958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307162945023501490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bec3f14c3e7402690432a0135526e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalStateMachine: {fileID: 2837191052121093881}
 --- !u!114 &2837191052121093881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +199,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalMoveBehaviour: {fileID: 8427884733517737746}
   animalTransform: {fileID: 3537527723703652698}
+  animalPool: {fileID: 496302587507543958}

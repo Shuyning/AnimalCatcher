@@ -7,26 +7,6 @@ namespace AnimalCatcher.Components
 {
     public class AnimalStateMachine : MonoBehaviour, IAnimalStateMachine
     {
-        public class Pool : MonoMemoryPool<Transform, Vector3, AnimalStateMachine>
-        {
-            protected override void Reinitialize(Transform parent, Vector3 position, AnimalStateMachine item)
-            {
-                base.Reinitialize(parent, position, item);
-                item.transform.SetParent(parent);
-                item.transform.position = position;
-                item.transform.rotation = Quaternion.identity;
-                item.gameObject.SetActive(true);
-            }
-
-            protected override void OnDespawned(AnimalStateMachine item)
-            {
-                base.OnDespawned(item);
-                item.SwitchState(AnimalStateType.Idle);
-                item.AnimalDespawned?.Invoke(item);
-                item.gameObject.SetActive(false);
-            }
-        }
-
         [SerializeField] private AnimalComponentStorage animalComponentStorage;
 
         private readonly AnimalStateStorage _animalStateStorage = new AnimalStateStorage();
@@ -35,8 +15,6 @@ namespace AnimalCatcher.Components
 
         public IAnimalComponentGetter AnimalComponentGetter => animalComponentStorage;
         public AnimalStateType AnimalStateType => _currentAnimalStateType;
-
-        public event Action<IAnimalStateMachine> AnimalDespawned;
 
         private void Update()
         {

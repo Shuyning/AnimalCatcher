@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Components
 {
     [RequireComponent(typeof(Camera))]
-    public class CameraComponent : MonoBehaviour, ICameraValueConverter
+    public class CameraComponent : MonoBehaviour, IScreenPointConverter
     {
         private Camera _camera;
 
@@ -13,7 +13,7 @@ namespace Components
             _camera = GetComponent<Camera>();
         }
 
-        public Vector3 GetWorldPositionFromMouseTouch(Vector2 mousePosition)
+        public Vector3 GetWorldPositionFromScreenTouch(Vector2 mousePosition)
         {
             Ray ray = _camera.ScreenPointToRay(mousePosition);
             Plane plane = new Plane(Vector3.forward, Vector3.zero);
@@ -24,7 +24,6 @@ namespace Components
                 touchPos.z = 0;
                 return touchPos;
             }
-                
 
             return Vector3.zero;
         }

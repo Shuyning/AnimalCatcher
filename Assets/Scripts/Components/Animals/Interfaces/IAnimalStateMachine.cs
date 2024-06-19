@@ -2,7 +2,7 @@
 
 namespace AnimalCatcher.Components
 {
-    public interface IAnimalStateMachine : IAnimalObserver
+    public interface IAnimalStateMachine
     {
         public IAnimalComponentGetter AnimalComponentGetter { get; }
         public AnimalStateType AnimalStateType { get; }

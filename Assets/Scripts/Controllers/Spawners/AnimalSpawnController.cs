@@ -14,22 +14,22 @@ namespace AnimalCatcher.Controllers
     public class AnimalSpawnController : IDisposable, IAnimalSpawner
     {
         private readonly AnimalSpawnConfig _animalSpawnConfig;
-        private readonly AnimalStateMachine.Pool _animalPool;
+        private readonly AnimalPool.Pool _animalPool;
         private readonly Transform _poolTransform;
 
-        private readonly List<AnimalStateMachine> _spawnAnimals;
+        private readonly List<AnimalPool> _spawnAnimals;
         private bool _isStart;
 
         private CancellationTokenSource _cancellationToken;
 
         [Inject]
-        private AnimalSpawnController(AnimalSpawnConfig animalSpawnConfig, AnimalStateMachine.Pool animalPool, Transform transform)
+        private AnimalSpawnController(AnimalSpawnConfig animalSpawnConfig, AnimalPool.Pool animalPool, Transform transform)
         {
             _animalSpawnConfig = animalSpawnConfig;
             _animalPool = animalPool;
             _poolTransform = transform;
 
-            _spawnAnimals = new List<AnimalStateMachine>();
+            _spawnAnimals = new List<AnimalPool>();
             _isStart = false;
         }
         
@@ -50,12 +50,12 @@ namespace AnimalCatcher.Controllers
             TrySpawnAnimal();
         }
 
-        public void Despawn(AnimalStateMachine animalStateMachine)
+        public void Despawn(AnimalPool animalPool)
         {
-            if (_spawnAnimals.Contains(animalStateMachine))
-                _spawnAnimals.Remove(animalStateMachine);
+            if (_spawnAnimals.Contains(animalPool))
+                _spawnAnimals.Remove(animalPool);
             
-            _animalPool.Despawn(animalStateMachine);
+            _animalPool.Despawn(animalPool);
             TrySpawnAnimal();
         }
 
@@ -90,10 +90,7 @@ namespace AnimalCatcher.Controllers
 
         private void Spawn()
         {
-            AnimalStateMachine animalStateMachine = _animalPool.Spawn(_poolTransform, Vector3.zero);
-            animalStateMachine.SwitchState(AnimalStateType.Patrol);
-            
-            _spawnAnimals.Add(animalStateMachine);
+            _spawnAnimals.Add(_animalPool.Spawn(_poolTransform, Vector3.zero));
             TrySpawnAnimal();
         }
     }

@@ -32,7 +32,7 @@ namespace AnimalCatcher.Controllers
         public void Dispose()
         {
             foreach (var follower in _followers)
-                follower.AnimalDespawned -= RemoveFollow;
+                follower.AnimalComponentGetter.AnimalObserver.AnimalDespawned -= RemoveFollow;
             
             _followers.Clear();
         }

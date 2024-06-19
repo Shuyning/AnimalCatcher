@@ -11,15 +11,15 @@ namespace AnimalCatcher.Components
     public class CharacterMoveBehaviour : MonoBehaviour
     {
         private IScreenInputObserver _screenInputObserver;
-        private ICameraValueConverter _cameraValueConverter;
+        private IScreenPointConverter _screenPointConverter;
         
         private NavMeshAgent _navMeshAgent;
 
         [Inject]
-        private void Construct(IScreenInputObserver screenInputObserver, ICameraValueConverter cameraValueConverter)
+        private void Construct(IScreenInputObserver screenInputObserver, IScreenPointConverter screenPointConverter)
         {
             _screenInputObserver = screenInputObserver;
-            _cameraValueConverter = cameraValueConverter;
+            _screenPointConverter = screenPointConverter;
         }
 
         private void Awake()
@@ -43,7 +43,7 @@ namespace AnimalCatcher.Components
 
         private void MoveToPosition(Vector2 vector2)
         {
-            _navMeshAgent.SetDestination(_cameraValueConverter.GetWorldPositionFromMouseTouch(vector2));
+            _navMeshAgent.SetDestination(_screenPointConverter.GetWorldPositionFromScreenTouch(vector2));
         }
     }
 }

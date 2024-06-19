@@ -17,7 +17,7 @@ namespace AnimalCatcher.Installers
 
         [Header("Animal Pool")] 
         [SerializeField] private AnimalSpawnConfig animalSpawnConfig;
-        [SerializeField] private AnimalStateMachine animalPrefab;
+        [SerializeField] private AnimalPool animalPrefab;
         [SerializeField] private int defaultAnimalCount = 7;
         [SerializeField] private Transform animalSpawnObject;
         
@@ -50,7 +50,7 @@ namespace AnimalCatcher.Installers
 
         private void InstallPools()
         {
-            Container.BindMemoryPool<AnimalStateMachine, AnimalStateMachine.Pool>().WithInitialSize(defaultAnimalCount).
+            Container.BindMemoryPool<AnimalPool, AnimalPool.Pool>().WithInitialSize(defaultAnimalCount).
                 FromComponentInNewPrefab(animalPrefab).UnderTransform(transform);
 
             Container.BindInterfacesTo<AnimalSpawnController>().AsSingle().WithArguments(animalSpawnObject, animalSpawnConfig);

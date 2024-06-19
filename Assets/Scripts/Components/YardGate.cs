@@ -18,9 +18,9 @@ namespace AnimalCatcher.Components
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out AnimalStateMachine animalStateMachine))
+            if (other.TryGetComponent(out AnimalPool animalPool))
             {
-                _animalSpawner.Despawn(animalStateMachine);
+                _animalSpawner.Despawn(animalPool);
                 _scoreCounter.Increase();
                 return;
             }
